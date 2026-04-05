@@ -1,4 +1,4 @@
-Problem Statement
+# Problem Statement
 Organizations rely on Total Quality Management (TQM) newsletters to disseminate critical information related to quality improvements, process optimization, performance metrics, and best practices. These newsletters are typically distributed as multimodal PDF documents containing a mixture of unstructured text, complex tables, and visual elements such as charts and process diagrams.
 However, the current approach to utilizing these newsletters presents several challenges:
 •	Unstructured Information: Content is scattered across multiple PDFs without a unified or searchable structure.
@@ -7,7 +7,7 @@ However, the current approach to utilizing these newsletters presents several ch
 •	Poor Knowledge Reuse: Historical quality insights, lessons learned, and corrective actions are not effectively reused in decision-making.
 •	Lack of Contextual Understanding: Conventional keyword-based search fails to capture semantic meaning, domain-specific terminology, and cross-document relationships.
 As a result, organizations face delays in decision-making, reduced efficiency in quality management processes, and limited impact of TQM initiatives.
-Objective
+# Objective
 The goal of this project is to design and implement a Multimodal Retrieval-Augmented Generation (RAG) system that:
 •	Ingests TQM newsletters in PDF format (text, tables, and images)
 •	Converts them into a searchable multimodal knowledge base
