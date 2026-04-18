@@ -1,0 +1,2 @@
+This is a placeholder artifact file for the sample model folder.
+Replace this with your trained model files, tokenizer, and config files before publishing.

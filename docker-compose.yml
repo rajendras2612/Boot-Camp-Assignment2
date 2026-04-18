@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    container_name: multimodal-rag-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app:cached
+      - ./data:/app/data
+    environment:
+      - APP_NAME=multimodal-rag
+      - LOG_LEVEL=INFO
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_COMPLETION_MODEL=${OPENAI_COMPLETION_MODEL}
+      - OPENAI_EMBEDDING_MODEL=${OPENAI_EMBEDDING_MODEL}
+      - LOCAL_EMBEDDING_MODEL=${LOCAL_EMBEDDING_MODEL}
+      - PDF_STORAGE_PATH=/app/data/pdf
+      - VECTOR_STORE_PATH=/app/data/vector_store
+      - CHUNK_SIZE=${CHUNK_SIZE}
+      - CHUNK_OVERLAP=${CHUNK_OVERLAP}
+      - TOP_K=${TOP_K}
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000

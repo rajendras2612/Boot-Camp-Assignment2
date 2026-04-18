@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multimodal RAG Demo</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header>
+      <div>
+        <h1>Multimodal RAG Demo</h1>
+        <p>Upload PDFs, query text, tables, and images, then review results in one UI.</p>
+      </div>
+      <div class="badge">FastAPI UI</div>
+    </header>
+
+    <section class="panel">
+      <h2>1. Upload PDF</h2>
+      <form id="ingest-form">
+        <input type="file" id="pdf-file" accept="application/pdf" />
+        <button type="submit">Upload and Ingest</button>
+      </form>
+      <pre id="ingest-response" class="response-box">No ingestion yet.</pre>
+    </section>
+
+    <section class="panel">
+      <h2>2. Query Content</h2>
+      <form id="query-form">
+        <label for="query-input">Ask a question:</label>
+        <input id="query-input" type="text" placeholder="Example: What are the top quality metrics?" />
+        <button type="submit">Run Query</button>
+      </form>
+      <div id="query-results" class="response-box">
+        <p>No query results yet.</p>
+      </div>
+    </section>
+
+    <section class="panel status-grid">
+      <div>
+        <h3>Available API</h3>
+        <ul>
+          <li><strong>GET</strong> /health</li>
+          <li><strong>GET</strong> /status</li>
+          <li><strong>POST</strong> /ingest</li>
+          <li><strong>POST</strong> /query</li>
+          <li><strong>GET</strong> /docs</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Quick links</h3>
+        <a class="link-card" href="/docs">Open API Docs</a>
+        <a class="link-card" href="/docs/swagger">Swagger UI</a>
+        <a class="link-card" href="/docs/redoc">ReDoc</a>
+      </div>
+    </section>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

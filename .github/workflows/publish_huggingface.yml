@@ -1,0 +1,44 @@
+name: Publish model to Hugging Face
+
+on:
+  workflow_dispatch:
+    inputs:
+      repo_id:
+        description: 'Hugging Face repo id (username/model-name)'
+        required: true
+        default: 'username/model-name'
+      path:
+        description: 'Local path to publish (folder under repo root)'
+        required: true
+        default: './model'
+      private:
+        description: 'Publish repo as private?'
+        required: false
+        default: 'false'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install huggingface_hub
+
+      - name: Publish to Hugging Face
+        run: |
+          python scripts/publish_hf_model.py \
+            --repo-id "${{ github.event.inputs.repo_id }}" \
+            --path "${{ github.event.inputs.path }}" \
+            $([[ "${{ github.event.inputs.private }}" == "true" ]] && echo "--private")
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
