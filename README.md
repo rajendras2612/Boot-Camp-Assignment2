@@ -7,6 +7,8 @@ However, the current approach to utilizing these newsletters presents several ch
 •	Poor Knowledge Reuse: Historical quality insights, lessons learned, and corrective actions are not effectively reused in decision-making.
 •	Lack of Contextual Understanding: Conventional keyword-based search fails to capture semantic meaning, domain-specific terminology, and cross-document relationships.
 As a result, organizations face delays in decision-making, reduced efficiency in quality management processes, and limited impact of TQM initiatives.
+
+
 #Objective
 The goal of this project is to design and implement a Multimodal Retrieval-Augmented Generation (RAG) system that:
 •	Ingests TQM newsletters in PDF format (text, tables, and images)
